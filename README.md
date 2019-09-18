@@ -3,9 +3,7 @@ This repository is the pytorch implementation of Progressive Image Inpainting wi
 
 ## Visual Results
 <figure class='third'>
-    <img src="examples/ex_damaged1.png" width="200"/>
-    <img src="examples/ex_mid1.png" width="200"/>
-    <img src="examples/ex_final1.png" width="200"/>
+    <img src="examples/ex_damaged1.png" width="200"/><img src="examples/ex_mid1.png" width="200"/><img src="examples/ex_final1.png" width="200"/>
 </figure>
 
 
