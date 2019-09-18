@@ -3,14 +3,14 @@ This repository is the pytorch implementation of Progressive Image Inpainting wi
 
 ## Visual Results
 <p float="left">
-    <img src="examples/ex_damaged1.png" width="250"/>
-    <img src="examples/ex_mid1.png" width="250"/>
-    <img src="examples/ex_final1.png" width="250"/>
+    <img src="examples/ex_damaged1.png" width="200"/>
+    <img src="examples/ex_mid1.png" width="200"/>
+    <img src="examples/ex_final1.png" width="200"/>
 </p>
 <p float="left">
-    <img src="examples/ex_damaged2.png" width="250"/>
-    <img src="examples/ex_mid2.png" width="250"/>
-    <img src="examples/ex_final2.png" width="250"/>
+    <img src="examples/ex_damaged2.png" width="200"/>
+    <img src="examples/ex_mid2.png" width="200"/>
+    <img src="examples/ex_final2.png" width="200"/>
 </p>
 
 ## Release Timeline
