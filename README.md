@@ -5,9 +5,6 @@ This repository is the pytorch implementation of Progressive Image Inpainting wi
 <figure align='center'>
     <img src="https://github.com/ZongyuGuo/Inpainting_FRRN/tree/master/examples/ex_damaged1.png" width="200"/><img src="https://github.com/ZongyuGuo/Inpainting_FRRN/tree/master/examples/ex_mid1.png" width="200"/><img src="https://github.com/ZongyuGuo/Inpainting_FRRN/tree/master/examples/ex_final1.png" width="200"/>
 </figure>
-<figure align='center'>
-    <img src="https://github.com/ZongyuGuo/Inpainting_FRRN/tree/master/examples/ex_damaged2.png" width="200"/><img src="https://github.com/ZongyuGuo/Inpainting_FRRN/tree/master/examples/ex_mid2.png" width="200"/><img src="https://github.com/ZongyuGuo/Inpainting_FRRN/tree/master/examples/ex_final2.png" width="200"/>
-</figure>
 
 
 ## Release Timeline
