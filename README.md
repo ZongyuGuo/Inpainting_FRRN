@@ -50,4 +50,15 @@ python main.py --skip_training=False --RESUME=True --gpu_id=0
 
 
 ## Some Details
-Our codes only resize input images to 256*256 resolution. So if you are curious about our network's performance on larger resolution, you should reset the related parameters.
+Our codes only resize input images to 256*256 resolution. So if you are curious about our network's performance on larger resolution, you should reset the related parameters and train your model from the beginning!
+
+## Citation
+If you find these codes are useful, please cite uor paper [Progressive Image Inpainting with Full-Resolution Residual Network](https://arxiv.org/abs/1907.10478)
+```bash
+@article{guo2019progressive,
+  title={Progressive Image Inpainting with Full-Resolution Residual Network},
+  author={Guo, Zongyu and Chen, Zhibo and Yu, Tao and Chen, Jiale and Liu, Sen},
+  journal={arXiv preprint arXiv:1907.10478},
+  year={2019}
+}
+```
