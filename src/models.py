@@ -87,17 +87,6 @@ class InpaintingModel(nn.Module):
             mid_l1_loss = self.l1_loss(mid_x[idx] * mid_mask[idx], images * mid_mask[idx]) 
             gen_loss += mid_l1_loss * self.config.STEP_LOSS_WEIGHT
 
-        # create logs
-        '''
-        logs = [
-            ("l_d2", dis_loss.item()),
-            ("l_g2", gen_gan_loss.item()),
-            ("l_l1", gen_l1_loss.item()),
-            ("l_per", gen_content_loss.item()),
-            ("l_sty", gen_style_loss.item()),
-        ]
-        '''
-
         return outputs, gen_loss, dis_loss
 
     def forward(self, images, masks):

@@ -90,10 +90,10 @@ def eval():
         outputs, gen_loss, dis_loss = inpaint_model.process(images, masks)
         img_out = outputs[0].detach().permute(1, 2, 0).cpu().numpy()
         img_gt = images[0].detach().permute(1, 2, 0).cpu().numpy()
-        log[0] += compare_psnr(outputs, img_gt, data_range=1)
-        log[1] += compare_ssim(outputs, img_gt, data_range=1, multichannel=True, win_size=11)
-        if eval_iter == 1 or eval_iter % 50 == 0:
-            print('[EVAL] ({}/{}) PSNR:{:.4f}'.format(eval_iter + 1, len(eval_loader),log[0] / eval_iter, log[1] / eval_iter))
+        log[0] += compare_psnr(img_out, img_gt, data_range=1)
+        log[1] += compare_ssim(img_out, img_gt, data_range=1, multichannel=True, win_size=11)
+        if eval_iter % 50 == 0:
+            print('[EVAL] ({}/{}) PSNR:{:.4f}'.format(eval_iter, len(eval_loader),log[0] / eval_iter, log[1] / eval_iter))
 
 
 
