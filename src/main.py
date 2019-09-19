@@ -13,7 +13,7 @@ from skimage.measure import compare_ssim
 from skimage.measure import compare_psnr
 
 parser = argparse.ArgumentParser(description='Image Inpainting')
-parser.add_argument('--epoch', type=int, default=10)
+parser.add_argument('--epoch', type=int, default=1)
 parser.add_argument('--max_iterations', type=int, default=500000, help="max iteration number in one epoch")
 parser.add_argument('--batch_size', '-b', type=int, default=4, help="Batch size")
 parser.add_argument('--patch_size', type=int, default=256, help="Patch size")
@@ -21,7 +21,7 @@ parser.add_argument('--patch_size', type=int, default=256, help="Patch size")
 parser.add_argument('--TRAIN_FLIST', type=str, default='./flist/places2_train.flist')
 parser.add_argument('--TRAIN_MASK_FLIST', type=str, default='./flist/masks.flist')
 parser.add_argument('--TEST_FLIST', type=str, default='./flist/places2_val.flist')
-parser.add_argument('--TEST_MASK_FLIST', type=str, default='./flist/masks_30to40.flist')
+parser.add_argument('--TEST_MASK_FLIST', type=str, default='./flist/masks.flist')
 
 parser.add_argument('--save_model_dir', type=str, default='./save_models')
 parser.add_argument('--save_iter_interval', type=int, default=100000, help="interval for saving model")
