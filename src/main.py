@@ -93,7 +93,7 @@ def eval():
         log[0] += compare_psnr(img_out, img_gt, data_range=1)
         log[1] += compare_ssim(img_out, img_gt, data_range=1, multichannel=True, win_size=11)
         if eval_iter % 50 == 0:
-            print('[EVAL] ({}/{}) PSNR:{:.4f}'.format(eval_iter, len(eval_loader),log[0] / eval_iter, log[1] / eval_iter))
+            print('[EVAL] ({}/{}) PSNR:{:.4f}, SSIM:{:.4f}'.format(eval_iter, len(eval_loader),log[0] / eval_iter, log[1] / eval_iter))
 
 
 
