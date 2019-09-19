@@ -16,6 +16,8 @@ We propose FRRN which shows that residual sturcture is particularly suitable for
     <img src="examples/ex_final2.png" width="200"/>
 </p>
 
-## Release Timeline
-* Release pre-trained model for evaluation recently.
-* Release the whole cleaned codes before 15th, November.
+## Code Structure
+This is the dirty version for our implementation. Part of the code is modified from [EdgeConnect](https://github.com/knazeri/edge-connect). We note that partialconv2d.py is also modified based on the released version of [PartialConv](https://github.com/NVIDIA/partialconv)
+
+## Performance
+If you are willing to try different loss weights, you may get even higher PSNR value (e.g., you can decrease the weight of adversarial loss). However, we manage to achieve the balance between qualitative results and quantitative results. 
