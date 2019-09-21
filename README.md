@@ -41,7 +41,7 @@ cd ./src
 python main.py --skip_training=False --RESUME=True --gpu_id=0,1
 ```
 
-We here provide our pre-trained model on Places2 dataset which performs closed to our reported statistics. We put it in ./save_models.
+We here provide our pre-trained model on Places2 dataset which performs closely to our reported statistics. We put it in ./save_models.
 If you use this pre-trained weights of model, you can 
 ```bash
 cd ./src
