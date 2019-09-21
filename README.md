@@ -25,8 +25,11 @@ cd ./flist
 bash flist.sh
 ```
 
+You should change the data location in *flist.sh* first to generate your own flist files.
+
 ## Performance
-If you are willing to try different loss weights, you may get even higher PSNR value (e.g., you can decrease the weight of adversarial loss). However, we manage to achieve the balance between qualitative results and quantitative results. 
+If you are willing to try different loss weights, you may get even higher PSNR value (e.g., you can decrease the weight of adversarial loss). However, we manage to achieve the balance between qualitative results and quantitative results. So we finally choose an appropriate setting of loss weights.
+
 
 ## Usage
 To train your own parameters of FRRN, you can enter
