@@ -72,7 +72,7 @@ def train():
             batch_t1 = time.time()
             if inpaint_model.iteration == 1 or inpaint_model.iteration % 50 == 0:
                 psnr = inpaint_model.cal_psnr(outputs, images)
-                print('[TRAIN] Epoch[{}({}/{})]; Loss_G:{:.6f}; Loss_D:{:.6f}; PSNR:{:.4f}; time:{:.4f} sec'.
+                print('[TRAIN] Epoch[{}({}/{})]; Loss_G:{:.6f}; Loss_D:{:.6f}; PSNR_batch:{:.4f}; time:{:.4f} sec'.
                     format(epoch + 1, inpaint_model.iteration, len(train_loader), 
                     gen_loss.item(), dis_loss.item(), psnr.item(), batch_t1 - batch_t0))
 
