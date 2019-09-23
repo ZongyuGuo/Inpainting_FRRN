@@ -65,6 +65,8 @@ def train():
     inpaint_model.generator.train()
     for epoch in range(config.epoch):
         for images, masks in train_loader:
+            if inpaint_model.iteration % len(train_loader) >= config.max_iterations:
+                break
             batch_t0 = time.time()
             images, masks = images.cuda(), masks.cuda()
             outputs, gen_loss, dis_loss = inpaint_model.process(images, masks)
@@ -82,7 +84,6 @@ def train():
 def eval():
     inpaint_model.discriminator.eval()
     inpaint_model.generator.eval()
-    psnr_all = []
     log = [0, 0]
     eval_iter = 0
     for images, masks in eval_loader:
