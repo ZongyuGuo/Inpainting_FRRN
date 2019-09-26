@@ -36,8 +36,8 @@ parser.add_argument('--STEP_LOSS_WEIGHT', type=float, default=2.0, help='step lo
 parser.add_argument('--num_workers', type=int, default=4)
 parser.add_argument('--gpu_id', type=str, help='GPU ID')
 parser.add_argument('--RESUME', default=False, type=bool, help='load pre-trained weights')
-parser.add_argument('--skip_training', default=False, type=bool, help='store_true')
-parser.add_argument('--skip_validation', default=False, type=bool, help='store_true')
+parser.add_argument('--skip_training', default=False, action='store_true')
+parser.add_argument('--skip_validation', default=False, action='store_true')
 
 config = parser.parse_args()
 

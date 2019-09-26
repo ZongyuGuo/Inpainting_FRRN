@@ -35,20 +35,20 @@ If you are willing to try different loss weights, you may get even higher PSNR v
 To train your own parameters of FRRN, you can enter
 ```bash
 cd ./src
-python main.py --skip_training=False --gpu_id=0,1
+python main.py --gpu_id=0,1
 ```
 
 To evaluate your trained model, you can enter
 ```bash
 cd ./src
-python main.py --skip_training=False --RESUME=True --gpu_id=0,1
+python main.py --skip_training --RESUME=True --gpu_id=0,1
 ```
 
 We here provide our pre-trained model on Places2 dataset which performs closely to our reported statistics. We put it in ./save_models.
 If you use this pre-trained weights of model, you can 
 ```bash
 cd ./src
-python main.py --skip_training=False --RESUME=True --gpu_id=0
+python main.py --skip_training --RESUME=True --gpu_id=0
 ```
 
 
