@@ -13,15 +13,15 @@ from skimage.measure import compare_ssim
 from skimage.measure import compare_psnr
 
 parser = argparse.ArgumentParser(description='Image Inpainting')
-parser.add_argument('--epoch', type=int, default=1)
+parser.add_argument('--epoch', type=int, default=10)
 parser.add_argument('--max_iterations', type=int, default=500000, help="max iteration number in one epoch")
-parser.add_argument('--batch_size', '-b', type=int, default=8, help="Batch size")
+parser.add_argument('--batch_size', '-b', type=int, default=4, help="Batch size")
 parser.add_argument('--patch_size', type=int, default=256, help="Patch size")
 
 parser.add_argument('--TRAIN_FLIST', type=str, default='./flist/places2_train.flist')
 parser.add_argument('--TRAIN_MASK_FLIST', type=str, default='./flist/masks.flist')
 parser.add_argument('--TEST_FLIST', type=str, default='./flist/places2_val.flist')
-parser.add_argument('--TEST_MASK_FLIST', type=str, default='./flist/masks.flist')
+parser.add_argument('--TEST_MASK_FLIST', type=str, default='./flist/masks_30to40.flist')
 
 parser.add_argument('--save_model_dir', type=str, default='./save_models')
 parser.add_argument('--save_iter_interval', type=int, default=100000, help="interval for saving model")
@@ -65,8 +65,6 @@ def train():
     inpaint_model.generator.train()
     for epoch in range(config.epoch):
         for images, masks in train_loader:
-            if inpaint_model.iteration % len(train_loader) >= config.max_iterations:
-                break
             batch_t0 = time.time()
             images, masks = images.cuda(), masks.cuda()
             outputs, gen_loss, dis_loss = inpaint_model.process(images, masks)
@@ -74,7 +72,7 @@ def train():
             batch_t1 = time.time()
             if inpaint_model.iteration == 1 or inpaint_model.iteration % 50 == 0:
                 psnr = inpaint_model.cal_psnr(outputs, images)
-                print('[TRAIN] Epoch[{}({}/{})]; Loss_G:{:.6f}; Loss_D:{:.6f}; PSNR_batch:{:.4f}; time:{:.4f} sec'.
+                print('[TRAIN] Epoch[{}({}/{})]; Loss_G:{:.6f}; Loss_D:{:.6f}; PSNR:{:.4f}; time:{:.4f} sec'.
                     format(epoch + 1, inpaint_model.iteration, len(train_loader), 
                     gen_loss.item(), dis_loss.item(), psnr.item(), batch_t1 - batch_t0))
 
@@ -87,6 +85,7 @@ def eval():
     log = [0, 0]
     eval_iter = 0
     for images, masks in eval_loader:
+        eval_iter += 1
         images, masks = images.cuda(), masks.cuda()
         outputs, gen_loss, dis_loss = inpaint_model.process(images, masks)
         img_out = outputs[0].detach().permute(1, 2, 0).cpu().numpy()
@@ -100,6 +99,7 @@ def eval():
 
 if config.RESUME:
     inpaint_model.load()
+
 
 if not config.skip_training:
     train()
