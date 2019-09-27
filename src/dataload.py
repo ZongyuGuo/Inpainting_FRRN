@@ -8,7 +8,7 @@ import torchvision.transforms.functional as F
 from torch.utils.data import DataLoader
 from PIL import Image
 from scipy.misc import imread
-
+from skimage.color import gray2rgb
 
 class Dataset(torch.utils.data.Dataset):
     def __init__(self, input_size, flist, mask_flist, augment=True, training=True):
