@@ -65,16 +65,16 @@ class FRRNet(BaseNetwork):
 class FRRBlock(nn.Module):
     def __init__(self):
         super(FRRBlock, self).__init__()
-        self.full_conv1 = PConvLayer(in_channels=3, out_channels=32, kernel_size=5, stride=1, padding=2, use_norm=False)
-        self.full_conv2 = PConvLayer(in_channels=32, out_channels=32, kernel_size=5, stride=1, padding=2, use_norm=False)
-        self.full_conv3 = PConvLayer(in_channels=32, out_channels=3, kernel_size=5, stride=1, padding=2, use_norm=False)
+        self.full_conv1 = PConvLayer(3,  32, kernel_size=5, stride=1, padding=2, use_norm=False)
+        self.full_conv2 = PConvLayer(32, 32, kernel_size=5, stride=1, padding=2, use_norm=False)
+        self.full_conv3 = PConvLayer(32, 3,  kernel_size=5, stride=1, padding=2, use_norm=False)
         self.upsample = nn.Upsample(scale_factor=2, mode='nearest')
-        self.branch_conv1 = PConvLayer(in_channels=3, out_channels=64, kernel_size=3, stride=2, padding=1, use_norm=False)
-        self.branch_conv2 = PConvLayer(in_channels=64, out_channels=96, kernel_size=3, stride=2, padding=1)
-        self.branch_conv3 = PConvLayer(in_channels=96, out_channels=128, kernel_size=3, stride=2, padding=1)
-        self.branch_conv4 = PConvLayer(in_channels=128, out_channels=96, kernel_size=3, stride=1, padding=1, act='LeakyReLU')
-        self.branch_conv5 = PConvLayer(in_channels=96, out_channels=64, kernel_size=3, stride=1, padding=1, act='LeakyReLU')
-        self.branch_conv6 = PConvLayer(in_channels=64, out_channels=3, kernel_size=3, stride=1, padding=1, act='Tanh')
+        self.branch_conv1 = PConvLayer(3,   64,  kernel_size=3, stride=2, padding=1, use_norm=False)
+        self.branch_conv2 = PConvLayer(64,  96,  kernel_size=3, stride=2, padding=1)
+        self.branch_conv3 = PConvLayer(96,  128, kernel_size=3, stride=2, padding=1)
+        self.branch_conv4 = PConvLayer(128, 96,  kernel_size=3, stride=1, padding=1, act='LeakyReLU')
+        self.branch_conv5 = PConvLayer(96,  64,  kernel_size=3, stride=1, padding=1, act='LeakyReLU')
+        self.branch_conv6 = PConvLayer(64,  3,   kernel_size=3, stride=1, padding=1, act='Tanh')
 
     def forward(self, input, mask, mask_ori):
         x = input
