@@ -82,7 +82,7 @@ def train():
 def eval():
     inpaint_model.discriminator.eval()
     inpaint_model.generator.eval()
-    log = [0, 0]
+    log = [0, 0, 0]
     eval_iter = 0
     for images, masks in eval_loader:
         eval_iter += 1
@@ -92,8 +92,10 @@ def eval():
         img_gt = images[0].detach().permute(1, 2, 0).cpu().numpy()
         log[0] += compare_psnr(img_out, img_gt, data_range=1)
         log[1] += compare_ssim(img_out, img_gt, data_range=1, multichannel=True, win_size=11)
+        log[2] += np.mean(np.abs(img_out-img_gt))
         if eval_iter % 50 == 0:
-            print('[EVAL] ({}/{}) PSNR:{:.4f}, SSIM:{:.4f}'.format(eval_iter, len(eval_loader),log[0] / eval_iter, log[1] / eval_iter))
+            print('[EVAL] ({}/{}) PSNR:{:.4f}, SSIM:{:.4f}, L1:{:.4f}'.
+            format(eval_iter, len(eval_loader),log[0] / eval_iter, log[1] / eval_iter, log[2] / eval_iter))
 
 
 
