@@ -58,10 +58,12 @@ Our codes only resize input images to 256*256 resolution. So if you are curious 
 ## Citation
 If you find these codes are useful and use it for your research, please cite our paper [Progressive Image Inpainting with Full-Resolution Residual Network](https://arxiv.org/abs/1907.10478)
 ```bash
-@article{guo2019progressive,
+@inproceedings{guo2019progressive,
   title={Progressive Image Inpainting with Full-Resolution Residual Network},
   author={Guo, Zongyu and Chen, Zhibo and Yu, Tao and Chen, Jiale and Liu, Sen},
-  journal={arXiv preprint arXiv:1907.10478},
-  year={2019}
+  booktitle={Proceedings of the 27th ACM International Conference on Multimedia},
+  pages={2496--2504},
+  year={2019},
+  organization={ACM}
 }
 ```
